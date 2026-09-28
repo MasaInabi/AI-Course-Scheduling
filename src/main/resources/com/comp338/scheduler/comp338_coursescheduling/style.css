@@ -1,0 +1,799 @@
+/* =========================================================
+   AI-BASED UNIVERSITY COURSE SCHEDULING
+   PREMIUM DARK GLASS / NEON AI THEME
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #050E1F;
+}
+
+
+/* =========================================================
+   GENERAL LABELS
+   ========================================================= */
+
+.label {
+    -fx-text-fill: #F4F7FF;
+}
+
+
+/* =========================================================
+   MAIN TITLE CONTAINER
+   ========================================================= */
+
+.main-title-container {
+    -fx-padding: 4 0 8 0;
+}
+
+
+/* =========================================================
+   AI TITLE
+   CYAN -> BLUE -> PURPLE -> PINK
+   ========================================================= */
+
+.ai-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill:
+        linear-gradient(
+            to right,
+            #00F0FF 0%,
+            #00B8FF 25%,
+            #3478FF 48%,
+            #7B5CFF 72%,
+            #E044FF 100%
+        );
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(74, 108, 255, 0.95),
+        14,
+        0.55,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   REST OF MAIN TITLE
+   WHITE + BLUE NEON GLOW
+   ========================================================= */
+
+.title-label {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #FFFFFF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(65, 135, 255, 0.95),
+        13,
+        0.55,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button {
+    -fx-background-color:
+        linear-gradient(
+            to bottom,
+            rgba(18, 72, 145, 0.95),
+            rgba(10, 48, 105, 0.95)
+        );
+
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+
+    -fx-border-color: rgba(70, 145, 255, 0.75);
+    -fx-border-width: 1;
+
+    -fx-padding: 10 12 10 12;
+
+    -fx-min-width: 155px;
+    -fx-pref-width: 175px;
+    -fx-max-width: 220px;
+
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+
+    -fx-cursor: hand;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(20, 105, 255, 0.30),
+        8,
+        0.20,
+        0,
+        2
+    );
+}
+
+
+.button:hover {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            rgba(46, 105, 205, 0.98),
+            rgba(72, 62, 190, 0.98)
+        );
+
+    -fx-border-color: #82ADFF;
+    -fx-border-width: 1.5;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(78, 120, 255, 0.80),
+        20,
+        0.45,
+        0,
+        0
+    );
+}
+
+
+.button:pressed {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            #5649D9,
+            #1D55B9
+        );
+
+    -fx-border-color: #A7C4FF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(108, 99, 255, 0.95),
+        24,
+        0.55,
+        0,
+        0
+    );
+
+    -fx-translate-y: 1px;
+}
+
+
+.button:focused {
+    -fx-border-color: #729BFF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(75, 135, 255, 0.60),
+        13,
+        0.35,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   TEXT FIELDS
+   ========================================================= */
+
+.text-field {
+    -fx-background-color: rgba(15, 31, 57, 0.92);
+
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #7F92AF;
+
+    -fx-border-color: #294B78;
+    -fx-border-width: 1;
+
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+
+    -fx-padding: 8;
+
+    -fx-highlight-fill: #5F65FF;
+    -fx-highlight-text-fill: #FFFFFF;
+}
+
+
+.text-field:focused {
+    -fx-border-color: #6C7CFF;
+    -fx-border-width: 1.5;
+
+    -fx-background-color: rgba(18, 37, 67, 0.98);
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(80, 105, 255, 0.60),
+        12,
+        0.35,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   DASHBOARD GLASS CARDS
+   ========================================================= */
+
+.dashboard-card {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            rgba(15, 35, 66, 0.90),
+            rgba(8, 24, 48, 0.92)
+        );
+
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+
+    -fx-border-color: rgba(55, 112, 185, 0.70);
+    -fx-border-width: 1;
+
+    -fx-padding: 10;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0, 0, 0, 0.35),
+        12,
+        0.15,
+        0,
+        4
+    );
+}
+
+
+.dashboard-card:hover {
+    -fx-border-color: rgba(82, 132, 220, 0.85);
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(60, 100, 210, 0.28),
+        17,
+        0.20,
+        0,
+        2
+    );
+}
+
+
+/* =========================================================
+   METRIC CARDS
+   ========================================================= */
+
+.metric-card {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            rgba(20, 43, 76, 0.88),
+            rgba(10, 28, 54, 0.90)
+        );
+
+    -fx-border-color: rgba(62, 120, 200, 0.55);
+
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+
+    -fx-padding: 12;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0, 0, 0, 0.30),
+        10,
+        0.15,
+        0,
+        3
+    );
+}
+
+
+/* =========================================================
+   TABLE VIEW
+   ========================================================= */
+
+.table-view {
+    -fx-background-color: rgba(8, 23, 45, 0.92);
+    -fx-control-inner-background: #09162B;
+
+    -fx-border-color: rgba(50, 103, 170, 0.65);
+    -fx-border-width: 1;
+
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+
+    -fx-table-cell-border-color: transparent;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0, 0, 0, 0.22),
+        8,
+        0.10,
+        0,
+        2
+    );
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.table-view .column-header-background {
+    -fx-background-color:
+        linear-gradient(
+            to right,
+            #243A91,
+            #36339D
+        );
+
+    -fx-background-radius: 8 8 0 0;
+}
+
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+}
+
+
+.table-view .column-header {
+    -fx-border-color: transparent;
+}
+
+
+.table-view .column-header .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+
+.table-view .column-header .label .text {
+    -fx-fill: #FFFFFF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(210, 225, 255, 0.25),
+        4,
+        0.15,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   TABLE ROWS
+   ========================================================= */
+
+.table-row-cell {
+    -fx-background-color: rgba(7, 22, 43, 0.92);
+}
+
+
+.table-row-cell:odd {
+    -fx-background-color: rgba(17, 38, 69, 0.92);
+}
+
+
+/* =========================================================
+   TABLE DATA
+   ========================================================= */
+
+.table-cell {
+    -fx-text-fill: #FFFFFF;
+    -fx-text-background-color: #FFFFFF;
+
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+
+    -fx-border-color: transparent;
+    -fx-padding: 5;
+}
+
+
+/* WHITE TEXT + BLUE GLOW */
+
+.table-cell .text {
+    -fx-fill: #FFFFFF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(150, 190, 255, 0.85),
+        8,
+        0.50,
+        0,
+        0
+    );
+}
+
+
+/* TABLE HOVER */
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(45, 68, 130, 0.82);
+}
+
+
+.table-row-cell:hover .text {
+    -fx-fill: #FFFFFF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(130, 180, 255, 1.0),
+        11,
+        0.60,
+        0,
+        0
+    );
+}
+
+
+/* TABLE SELECTED */
+
+.table-row-cell:selected {
+    -fx-background-color:
+        linear-gradient(
+            to right,
+            rgba(46, 89, 180, 0.95),
+            rgba(78, 62, 180, 0.95)
+        );
+}
+
+
+.table-row-cell:selected .text {
+    -fx-fill: #FFFFFF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(170, 205, 255, 1.0),
+        12,
+        0.65,
+        0,
+        0
+    );
+}
+
+
+/* EMPTY TABLE */
+
+.table-view .placeholder .label {
+    -fx-text-fill: #8294B2;
+    -fx-effect: none;
+}
+
+
+.table-view .placeholder .label .text {
+    -fx-effect: none;
+}
+
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.chart {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            rgba(14, 33, 62, 0.94),
+            rgba(6, 22, 43, 0.96)
+        );
+
+    -fx-border-color: rgba(54, 108, 180, 0.60);
+    -fx-border-width: 1;
+
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+
+    -fx-padding: 12;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0, 0, 0, 0.30),
+        12,
+        0.15,
+        0,
+        3
+    );
+}
+
+
+.chart:hover {
+    -fx-border-color: rgba(108, 99, 255, 0.85);
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(108, 99, 255, 0.35),
+        20,
+        0.25,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   CHART TITLE
+   ========================================================= */
+
+.chart-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(85, 115, 255, 0.50),
+        9,
+        0.25,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   CHART AXES
+   ========================================================= */
+
+.axis {
+    -fx-tick-label-fill: #AFC0DB;
+}
+
+
+.axis-label {
+    -fx-text-fill: #D8E4F7;
+    -fx-font-weight: bold;
+}
+
+
+.axis .axis-tick-mark {
+    -fx-stroke: #7183A0;
+}
+
+
+.axis .axis-minor-tick-mark {
+    -fx-stroke: #41536F;
+}
+
+
+/* =========================================================
+   CHART BACKGROUND
+   ========================================================= */
+
+.chart-plot-background {
+    -fx-background-color: rgba(6, 22, 43, 0.82);
+}
+
+
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: rgba(75, 110, 160, 0.30);
+    -fx-stroke-dash-array: 4 4;
+}
+
+
+.chart-alternative-row-fill {
+    -fx-fill: transparent;
+}
+
+
+/* =========================================================
+   CONVERGENCE LINE
+   ========================================================= */
+
+.default-color0.chart-series-line {
+    -fx-stroke: #6C63FF;
+    -fx-stroke-width: 2px;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(108, 99, 255, 0.95),
+        9,
+        0.55,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   CHART SYMBOLS
+   ========================================================= */
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #8B83FF, #FFFFFF;
+
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 6, 4;
+
+    -fx-padding: 3px;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(108, 99, 255, 0.80),
+        8,
+        0.45,
+        0,
+        0
+    );
+}
+
+
+.default-color0.chart-line-symbol:hover {
+    -fx-background-color: #FFFFFF, #786EFF;
+
+    -fx-padding: 4px;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(125, 112, 255, 1.0),
+        16,
+        0.75,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   SCROLL PANE
+   ========================================================= */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+
+.scroll-pane > .viewport {
+    -fx-background-color: #050E1F;
+}
+
+
+/* =========================================================
+   SCROLL BAR
+   ========================================================= */
+
+.scroll-bar {
+    -fx-background-color: #071426;
+}
+
+
+.scroll-bar .track {
+    -fx-background-color: #071426;
+    -fx-background-radius: 8;
+}
+
+
+.scroll-bar .thumb {
+    -fx-background-color: #294E80;
+    -fx-background-radius: 8;
+}
+
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #3F70B2;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(60, 125, 230, 0.50),
+        8,
+        0.25,
+        0,
+        0
+    );
+}
+
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+}
+
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: #7890B5;
+}
+
+
+/* =========================================================
+   SUCCESS
+   ========================================================= */
+
+.success-label {
+    -fx-text-fill: #55E6A5;
+    -fx-font-weight: bold;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(85, 230, 165, 0.30),
+        6,
+        0.20,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-label {
+    -fx-text-fill: #FF6B7A;
+    -fx-font-weight: bold;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(255, 75, 100, 0.30),
+        6,
+        0.20,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+.tooltip {
+    -fx-background-color: rgba(12, 26, 50, 0.97);
+
+    -fx-text-fill: #FFFFFF;
+
+    -fx-background-radius: 8;
+
+    -fx-border-color: #536BFF;
+    -fx-border-radius: 8;
+
+    -fx-padding: 8 12 8 12;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(80, 100, 255, 0.45),
+        10,
+        0.25,
+        0,
+        0
+    );
+}
+
+
+/* =========================================================
+   SEPARATOR
+   ========================================================= */
+
+.separator .line {
+    -fx-border-color: rgba(65, 100, 155, 0.45);
+    -fx-border-width: 1 0 0 0;
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.vbox,
+.hbox {
+    -fx-spacing: 10;
+}

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.comp338.scheduler.comp338_coursescheduling.HelloController"
+            stylesheets="@style.css">
+
+    <content>
+
+        <VBox alignment="TOP_CENTER"
+              spacing="8"
+              prefWidth="1500">
+
+            <padding>
+                <Insets top="10"
+                        right="15"
+                        bottom="10"
+                        left="15"/>
+            </padding>
+
+
+            <!-- TITLE -->
+
+            <HBox alignment="CENTER"
+                  spacing="0"
+                  styleClass="main-title-container">
+
+                <Label text="AI"
+                       styleClass="ai-title"/>
+
+                <Label text="-Based University Course Scheduling"
+                       styleClass="title-label"/>
+
+            </HBox>
+
+
+            <!-- PARAMETERS + BUTTONS -->
+
+            <HBox alignment="CENTER"
+                  spacing="25"
+                  prefWidth="1500">
+
+
+                <!-- PARAMETERS -->
+
+                <GridPane hgap="10"
+                          vgap="8">
+
+                    <Label text="Population Size:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="0"/>
+
+                    <TextField fx:id="populationField"
+                               text="50"
+                               prefWidth="100"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="0"/>
+
+
+                    <Label text="Generations / Iterations:"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="0"/>
+
+                    <TextField fx:id="generationsField"
+                               text="100"
+                               prefWidth="100"
+                               GridPane.columnIndex="3"
+                               GridPane.rowIndex="0"/>
+
+
+                    <Label text="Mutation Rate:"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="1"/>
+
+                    <TextField fx:id="mutationField"
+                               text="0.05"
+                               prefWidth="100"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"/>
+
+
+                    <Label text="Crossover Rate:"
+                           GridPane.columnIndex="2"
+                           GridPane.rowIndex="1"/>
+
+                    <TextField fx:id="crossoverField"
+                               text="0.8"
+                               prefWidth="100"
+                               GridPane.columnIndex="3"
+                               GridPane.rowIndex="1"/>
+
+                </GridPane>
+
+
+                <!-- BUTTONS: 5 + 4 -->
+
+
+                <VBox alignment="CENTER"
+                      spacing="8">
+
+                    <!-- FIRST ROW -->
+
+                    <HBox alignment="CENTER"
+                          spacing="8">
+
+                        <Button text="Run Genetic Algorithm"
+                                onAction="#runGeneticAlgorithm"/>
+
+                        <Button text="Run Hill Climbing"
+                                onAction="#runHillClimbing"/>
+
+                        <Button text="Population Experiment"
+                                onAction="#runPopulationExperiment"/>
+
+                        <Button text="Mutation Experiment"
+                                onAction="#runMutationExperiment"/>
+
+                        <Button text="Crossover Experiment"
+                                onAction="#runCrossoverExperiment"/>
+
+                    </HBox>
+
+
+                    <!-- SECOND ROW -->
+
+                    <HBox alignment="CENTER"
+                          spacing="8">
+
+                        <Button text="Dataset Experiment"
+                                onAction="#runDatasetExperiment"/>
+
+                        <Button text="Selection Experiment"
+                                onAction="#runSelectionExperiment"/>
+
+                        <Button text="Crossover Method"
+                                onAction="#runCrossoverMethodExperiment"/>
+
+                        <Button text="Mutation Method"
+                                onAction="#runMutationMethodExperiment"/>
+
+                    </HBox>
+
+                </VBox>
+
+            </HBox>
+
+
+            <!-- ================================================= -->
+            <!-- CURRENT ALGORITHM -->
+            <!-- ================================================= -->
+
+            <Label fx:id="algorithmLabel"
+                   text="Algorithm: -"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="22"
+                      vgap="6">
+
+                <Label fx:id="fitnessLabel"
+                       text="Fitness: -"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <Label fx:id="hardLabel"
+                       text="Hard Violations: -"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="0"/>
+
+                <Label fx:id="softLabel"
+                       text="Soft Violations: -"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="0"/>
+
+                <Label fx:id="penaltyLabel"
+                       text="Final Penalty: -"
+                       GridPane.columnIndex="3"
+                       GridPane.rowIndex="0"/>
+
+
+                <Label fx:id="coursesLabel"
+                       text="Courses Scheduled: -"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <Label fx:id="generationLabel"
+                       text="Generations Used: -"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="1"/>
+
+                <Label fx:id="timeLabel"
+                       text="Execution Time: -"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="1"/>
+
+            </GridPane>
+
+
+            <Label fx:id="statusLabel"
+                   text=""/>
+
+
+            <HBox spacing="12"
+                  alignment="TOP_CENTER"
+                  prefWidth="1500">
+
+
+                <!-- FINAL TIMETABLE -->
+
+                <VBox spacing="5"
+                      prefWidth="740"
+                      styleClass="dashboard-card">
+
+                    <Label text="Final Timetable"
+                           style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+                    <TableView fx:id="timetableTable"
+                               prefWidth="740"
+                               prefHeight="300"
+                               minHeight="300"
+                               maxHeight="300">
+
+                        <columns>
+
+                            <TableColumn fx:id="courseColumn"
+                                         text="Course"
+                                         prefWidth="180"/>
+
+                            <TableColumn fx:id="dayColumn"
+                                         text="Day"
+                                         prefWidth="120"/>
+
+                            <TableColumn fx:id="timeColumn"
+                                         text="Time"
+                                         prefWidth="140"/>
+
+                            <TableColumn fx:id="roomColumn"
+                                         text="Room"
+                                         prefWidth="95"/>
+
+                            <TableColumn fx:id="instructorColumn"
+                                         text="Instructor"
+                                         prefWidth="110"/>
+
+                        </columns>
+
+                    </TableView>
+
+                </VBox>
+
+
+                <!-- RIGHT SIDE -->
+
+                <VBox spacing="10"
+                      prefWidth="740">
+
+
+                    <!-- ALGORITHM COMPARISON -->
+
+                    <VBox spacing="5"
+                          styleClass="dashboard-card">
+
+                        <Label text="Algorithm Comparison"
+                               style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+                        <TableView fx:id="comparisonTable"
+                                   prefWidth="740"
+                                   prefHeight="110"
+                                   minHeight="110"
+                                   maxHeight="110">
+
+                            <columns>
+
+                                <TableColumn fx:id="comparisonAlgorithmColumn"
+                                             text="Algorithm"
+                                             prefWidth="150"/>
+
+                                <TableColumn fx:id="comparisonFitnessColumn"
+                                             text="Fitness"
+                                             prefWidth="90"/>
+
+                                <TableColumn fx:id="comparisonHardColumn"
+                                             text="Hard Violations"
+                                             prefWidth="115"/>
+
+                                <TableColumn fx:id="comparisonSoftColumn"
+                                             text="Soft Violations"
+                                             prefWidth="115"/>
+
+                                <TableColumn fx:id="comparisonTimeColumn"
+                                             text="Execution Time (ms)"
+                                             prefWidth="170"/>
+
+                            </columns>
+
+                        </TableView>
+
+                    </VBox>
+
+
+                    <!-- EXPERIMENTS -->
+
+                    <VBox spacing="5"
+                          styleClass="dashboard-card">
+
+                        <Label text="Experiments"
+                               style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+                        <TableView fx:id="experimentTable"
+                                   prefWidth="740"
+                                   prefHeight="170"
+                                   minHeight="170"
+                                   maxHeight="170">
+
+                            <columns>
+
+                                <TableColumn fx:id="experimentTypeColumn"
+                                             text="Experiment"
+                                             prefWidth="115"/>
+
+                                <TableColumn fx:id="experimentValueColumn"
+                                             text="Parameter Value"
+                                             prefWidth="105"/>
+
+                                <TableColumn fx:id="experimentFitnessColumn"
+                                             text="Fitness"
+                                             prefWidth="85"/>
+
+                                <TableColumn fx:id="experimentHardColumn"
+                                             text="Hard"
+                                             prefWidth="60"/>
+
+                                <TableColumn fx:id="experimentSoftColumn"
+                                             text="Soft"
+                                             prefWidth="60"/>
+
+                                <TableColumn fx:id="experimentGenerationsColumn"
+                                             text="Generations Used"
+                                             prefWidth="120"/>
+
+                                <TableColumn fx:id="experimentTimeColumn"
+                                             text="Execution Time (ms)"
+                                             prefWidth="145"/>
+
+                            </columns>
+
+                        </TableView>
+
+                    </VBox>
+
+                </VBox>
+
+            </HBox>
+
+
+            <VBox spacing="5"
+                  styleClass="dashboard-card"
+                  prefWidth="1500">
+
+                <LineChart fx:id="fitnessChart"
+                           title="Convergence Chart"
+                           prefWidth="1470"
+                           prefHeight="220"
+                           minHeight="220"
+                           maxHeight="220"
+                           createSymbols="false">
+
+                    <xAxis>
+                        <NumberAxis fx:id="fitnessXAxis"
+                                    label="Generation"/>
+                    </xAxis>
+
+                    <yAxis>
+                        <NumberAxis fx:id="fitnessYAxis"
+                                    label="Best Fitness"
+                                    autoRanging="true"/>
+                    </yAxis>
+
+                </LineChart>
+
+            </VBox>
+
+        </VBox>
+
+    </content>
+
+</ScrollPane>
